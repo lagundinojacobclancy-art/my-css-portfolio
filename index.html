@@ -1,835 +1,926 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jacob Clancy | Party & Event Portfolio</title>
-    <!-- Boxicons for icons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- Fonts for different themes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600&family=Orbitron:wght@500;700;900&family=Pacifico&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            text-decoration: none;
-            border: none;
-            outline: none;
-            scroll-behavior: smooth;
-            transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
-        }
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jacob Clancy | Party & Event Portfolio</title>
+  <!-- Boxicons for icons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <!-- Fonts for different themes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600&family=Orbitron:wght@500;700;900&family=Pacifico&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Rajdhani:wght@500;600;700&display=swap"
+    rel="stylesheet">
 
-        /* ----------------------- */
-        /* THEME VARIABLES (4 total)*/
-        /* ----------------------- */
-        
-        /* 1) Neon Nights (Default) */
-        :root, html[data-theme="neon-nights"] {
-            --bg-color: #0b0416;
-            --panel-bg: rgba(20, 10, 40, 0.75);
-            --text-main: #f0f8ff;
-            --text-muted: #8b9ac1;
-            --accent-1: #00f0ff; /* Cyan */
-            --accent-2: #ff007f; /* Neon Pink */
-            --heading-font: 'Orbitron', sans-serif;
-            --body-font: 'Rajdhani', sans-serif;
-            --border-radius: 10px;
-            --panel-border: 1px solid rgba(0, 240, 255, 0.3);
-            --btn-bg: transparent;
-            --btn-color: var(--accent-1);
-            --btn-border: 2px solid var(--accent-1);
-            --btn-shadow: 0 0 15px rgba(0, 240, 255, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.2);
-            --btn-hover-bg: var(--accent-1);
-            --btn-hover-color: var(--bg-color);
-            --bg-gradient: radial-gradient(circle at 10% 20%, rgba(255,0,127,0.15), transparent 40%), 
-                           radial-gradient(circle at 90% 80%, rgba(0,240,255,0.15), transparent 40%);
-            --glass-blur: blur(12px);
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      border: none;
+      outline: none;
+      scroll-behavior: smooth;
+      transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
+    }
 
-        /* 2) Hollywood Glam */
-        html[data-theme="hollywood-glam"] {
-            --bg-color: #080808;
-            --panel-bg: #151515;
-            --text-main: #f5f5dc; /* Champagne */
-            --text-muted: #b8a99a;
-            --accent-1: #d4af37; /* Gold */
-            --accent-2: #8a0303; /* Red Carpet Velvet */
-            --heading-font: 'Playfair Display', serif;
-            --body-font: 'Lato', sans-serif;
-            --border-radius: 0px; /* Sharp elegant edges */
-            --panel-border: 2px solid var(--accent-1);
-            --btn-bg: var(--accent-2);
-            --btn-color: var(--text-main);
-            --btn-border: 2px solid var(--accent-1);
-            --btn-shadow: 0 10px 20px rgba(0,0,0,0.8);
-            --btn-hover-bg: var(--accent-1);
-            --btn-hover-color: #000;
-            --bg-gradient: linear-gradient(135deg, #050505 0%, #1a0000 100%);
-            --glass-blur: blur(0px); /* Solid metallic elegance */
-        }
+    /* ----------------------- */
+    /* THEME VARIABLES (4 total)*/
+    /* ----------------------- */
 
-        /* 3) Tropical Paradise (Light) */
-        html[data-theme="tropical-light"] {
-            --bg-color: #fcefe3; /* Warm Sand */
-            --panel-bg: rgba(255, 255, 255, 0.9);
-            --text-main: #2b4f60; /* Deep Ocean */
-            --text-muted: #5e7a88;
-            --accent-1: #ff7f50; /* Coral / Summer Drink */
-            --accent-2: #228b22; /* Palm Leaf Green */
-            --heading-font: 'Pacifico', cursive;
-            --body-font: 'Montserrat', sans-serif;
-            --border-radius: 20px;
-            --panel-border: none;
-            --btn-bg: var(--accent-1);
-            --btn-color: #fff;
-            --btn-border: none;
-            --btn-shadow: 0 10px 20px rgba(255, 127, 80, 0.4);
-            --btn-hover-bg: var(--accent-2);
-            --btn-hover-color: #fff;
-            --bg-gradient: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-            --glass-blur: blur(10px);
-        }
+    /* 1) Neon Nights (Default) */
+    :root,
+    html[data-theme="neon-nights"] {
+      --bg-color: #0b0416;
+      --panel-bg: rgba(20, 10, 40, 0.75);
+      --text-main: #f0f8ff;
+      --text-muted: #8b9ac1;
+      --accent-1: #00f0ff;
+      /* Cyan */
+      --accent-2: #ff007f;
+      /* Neon Pink */
+      --heading-font: 'Orbitron', sans-serif;
+      --body-font: 'Rajdhani', sans-serif;
+      --border-radius: 10px;
+      --panel-border: 1px solid rgba(0, 240, 255, 0.3);
+      --btn-bg: transparent;
+      --btn-color: var(--accent-1);
+      --btn-border: 2px solid var(--accent-1);
+      --btn-shadow: 0 0 15px rgba(0, 240, 255, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.2);
+      --btn-hover-bg: var(--accent-1);
+      --btn-hover-color: var(--bg-color);
+      --bg-gradient: radial-gradient(circle at 10% 20%, rgba(255, 0, 127, 0.15), transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.15), transparent 40%);
+      --glass-blur: blur(12px);
+    }
 
-        /* 4) Tropical Paradise (Dark) */
-        html[data-theme="tropical-dark"] {
-            --bg-color: #1a1a2e; /* Midnight Ocean */
-            --panel-bg: rgba(22, 33, 62, 0.85); /* Deep Sea */
-            --text-main: #e94560; /* Sunset Neon Red */
-            --text-muted: #a0aeb2;
-            --accent-1: #f38181; /* Summer night glow */
-            --accent-2: #45b066; /* Dark palm */
-            --heading-font: 'Pacifico', cursive;
-            --body-font: 'Montserrat', sans-serif;
-            --border-radius: 20px;
-            --panel-border: 1px solid rgba(243, 129, 129, 0.3);
-            --btn-bg: transparent;
-            --btn-color: var(--accent-1);
-            --btn-border: 2px solid var(--accent-1);
-            --btn-shadow: 0 0 15px rgba(243, 129, 129, 0.4);
-            --btn-hover-bg: var(--accent-1);
-            --btn-hover-color: #1a1a2e;
-            --bg-gradient: linear-gradient(180deg, #2b1055 0%, #1a1a2e 100%);
-            --glass-blur: blur(15px);
-        }
+    /* 2) Hollywood Glam */
+    html[data-theme="hollywood-glam"] {
+      --bg-color: #080808;
+      --panel-bg: #151515;
+      --text-main: #f5f5dc;
+      /* Champagne */
+      --text-muted: #b8a99a;
+      --accent-1: #d4af37;
+      /* Gold */
+      --accent-2: #8a0303;
+      /* Red Carpet Velvet */
+      --heading-font: 'Playfair Display', serif;
+      --body-font: 'Lato', sans-serif;
+      --border-radius: 0px;
+      /* Sharp elegant edges */
+      --panel-border: 2px solid var(--accent-1);
+      --btn-bg: var(--accent-2);
+      --btn-color: var(--text-main);
+      --btn-border: 2px solid var(--accent-1);
+      --btn-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+      --btn-hover-bg: var(--accent-1);
+      --btn-hover-color: #000;
+      --bg-gradient: linear-gradient(135deg, #050505 0%, #1a0000 100%);
+      --glass-blur: blur(0px);
+      /* Solid metallic elegance */
+    }
 
-        html {
-            font-size: 62.5%;
-            overflow-x: hidden;
-        }
+    /* 3) Tropical Paradise (Light) */
+    html[data-theme="tropical-light"] {
+      --bg-color: #fcefe3;
+      /* Warm Sand */
+      --panel-bg: rgba(255, 255, 255, 0.9);
+      --text-main: #2b4f60;
+      /* Deep Ocean */
+      --text-muted: #5e7a88;
+      --accent-1: #ff7f50;
+      /* Coral / Summer Drink */
+      --accent-2: #228b22;
+      /* Palm Leaf Green */
+      --heading-font: 'Pacifico', cursive;
+      --body-font: 'Montserrat', sans-serif;
+      --border-radius: 20px;
+      --panel-border: none;
+      --btn-bg: var(--accent-1);
+      --btn-color: #fff;
+      --btn-border: none;
+      --btn-shadow: 0 10px 20px rgba(255, 127, 80, 0.4);
+      --btn-hover-bg: var(--accent-2);
+      --btn-hover-color: #fff;
+      --bg-gradient: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+      --glass-blur: blur(10px);
+    }
 
-        body {
-            background: var(--bg-color);
-            background-image: var(--bg-gradient);
-            background-attachment: fixed;
-            color: var(--text-main);
-            font-family: var(--body-font);
-        }
+    /* 4) Tropical Paradise (Dark) */
+    html[data-theme="tropical-dark"] {
+      --bg-color: #1a1a2e;
+      /* Midnight Ocean */
+      --panel-bg: rgba(22, 33, 62, 0.85);
+      /* Deep Sea */
+      --text-main: #e94560;
+      /* Sunset Neon Red */
+      --text-muted: #a0aeb2;
+      --accent-1: #f38181;
+      /* Summer night glow */
+      --accent-2: #45b066;
+      /* Dark palm */
+      --heading-font: 'Pacifico', cursive;
+      --body-font: 'Montserrat', sans-serif;
+      --border-radius: 20px;
+      --panel-border: 1px solid rgba(243, 129, 129, 0.3);
+      --btn-bg: transparent;
+      --btn-color: var(--accent-1);
+      --btn-border: 2px solid var(--accent-1);
+      --btn-shadow: 0 0 15px rgba(243, 129, 129, 0.4);
+      --btn-hover-bg: var(--accent-1);
+      --btn-hover-color: #1a1a2e;
+      --bg-gradient: linear-gradient(180deg, #2b1055 0%, #1a1a2e 100%);
+      --glass-blur: blur(15px);
+    }
 
-        /* ----------------------- */
-        /* LAYOUT & COMPONENTS     */
-        /* ----------------------- */
+    html {
+      font-size: 62.5%;
+      overflow-x: hidden;
+    }
 
-        /* HEADER */
-        .header {
-            position: fixed;
-            top: 0; left: 0; width: 100%;
-            padding: 2.5rem 9%;
-            background: var(--bg-color);
-            backdrop-filter: var(--glass-blur);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            border-bottom: var(--panel-border);
-            opacity: 0.95;
-        }
+    body {
+      background: var(--bg-color);
+      background-image: var(--bg-gradient);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: var(--body-font);
+    }
 
-        .logo {
-            font-size: 3.5rem;
-            color: var(--accent-1);
-            font-family: var(--heading-font);
-            font-weight: 700;
-            text-shadow: var(--btn-shadow);
-        }
+    /* ----------------------- */
+    /* LAYOUT & COMPONENTS     */
+    /* ----------------------- */
 
-        .navbar {
-            display: flex;
-            align-items: center;
-        }
+    /* HEADER */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 2.5rem 9%;
+      background: var(--bg-color);
+      backdrop-filter: var(--glass-blur);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      border-bottom: var(--panel-border);
+      opacity: 0.95;
+    }
 
-        .navbar a {
-            font-size: 1.8rem;
-            color: var(--text-main);
-            margin-left: 4rem;
-            transition: .3s;
-            font-weight: 600;
-            font-family: var(--heading-font);
-        }
+    .logo {
+      font-size: 3.5rem;
+      color: var(--accent-1);
+      font-family: var(--heading-font);
+      font-weight: 700;
+      text-shadow: var(--btn-shadow);
+    }
 
-        html[data-theme="neon-nights"] .navbar a { text-transform: uppercase; letter-spacing: 1px; }
-        html[data-theme="hollywood-glam"] .navbar a { text-transform: uppercase; letter-spacing: 2px; }
+    .navbar {
+      display: flex;
+      align-items: center;
+    }
 
-        .navbar a:hover, .navbar a.active {
-            color: var(--accent-1);
-        }
+    .navbar a {
+      font-size: 1.8rem;
+      color: var(--text-main);
+      margin-left: 4rem;
+      transition: .3s;
+      font-weight: 600;
+      font-family: var(--heading-font);
+    }
 
-        #menu-icon {
-            font-size: 3.6rem;
-            color: var(--accent-1);
-            display: none;
-            cursor: pointer;
-        }
+    html[data-theme="neon-nights"] .navbar a {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
-        /* SECTIONS */
-        section {
-            min-height: 100vh;
-            padding: 12rem 9% 4rem;
-        }
+    html[data-theme="hollywood-glam"] .navbar a {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
 
-        /* HERO */
-        .home {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
+    .navbar a:hover,
+    .navbar a.active {
+      color: var(--accent-1);
+    }
 
-        .home-content {
-            max-width: 80rem;
-            text-align: center;
-            z-index: 10;
-        }
+    #menu-icon {
+      font-size: 3.6rem;
+      color: var(--accent-1);
+      display: none;
+      cursor: pointer;
+    }
 
-        .home-content h3 {
-            font-size: 3.2rem;
-            font-weight: 600;
-            font-family: var(--heading-font);
-            color: var(--text-main);
-            margin-bottom: 1rem;
-        }
+    /* SECTIONS */
+    section {
+      min-height: 100vh;
+      padding: 12rem 9% 4rem;
+    }
 
-        .home-content h1 {
-            font-size: 7rem;
-            font-weight: 700;
-            font-family: var(--heading-font);
-            line-height: 1.2;
-            color: var(--accent-1);
-            margin-bottom: 2rem;
-            text-shadow: var(--btn-shadow);
-        }
+    /* HERO */
+    .home {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
 
-        .home-content h1 span {
-            color: var(--accent-2);
-        }
+    .home-content {
+      max-width: 80rem;
+      text-align: center;
+      z-index: 10;
+    }
 
-        .home-content p {
-            font-size: 2rem;
-            margin: 2rem auto 4rem;
-            line-height: 1.6;
-            color: var(--text-muted);
-            max-width: 70rem;
-            font-family: var(--body-font);
-        }
+    .home-content h3 {
+      font-size: 3.2rem;
+      font-weight: 600;
+      font-family: var(--heading-font);
+      color: var(--text-main);
+      margin-bottom: 1rem;
+    }
 
-        .social-media {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
+    .home-content h1 {
+      font-size: 7rem;
+      font-weight: 700;
+      font-family: var(--heading-font);
+      line-height: 1.2;
+      color: var(--accent-1);
+      margin-bottom: 2rem;
+      text-shadow: var(--btn-shadow);
+    }
 
-        .social-media a {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 5rem;
-            height: 5rem;
-            background: var(--panel-bg);
-            border: var(--panel-border);
-            border-radius: var(--border-radius);
-            font-size: 2.2rem;
-            color: var(--accent-1);
-            transition: .4s ease;
-            box-shadow: var(--btn-shadow);
-        }
+    .home-content h1 span {
+      color: var(--accent-2);
+    }
 
-        .social-media a:hover {
-            background: var(--accent-1);
-            color: var(--bg-color);
-            transform: translateY(-8px);
-        }
+    .home-content p {
+      font-size: 2rem;
+      margin: 2rem auto 4rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      max-width: 70rem;
+      font-family: var(--body-font);
+    }
 
-        .btn {
-            display: inline-block;
-            padding: 1.5rem 3.5rem;
-            background: var(--btn-bg);
-            border: var(--btn-border);
-            border-radius: var(--border-radius);
-            font-size: 1.8rem;
-            color: var(--btn-color);
-            font-weight: 700;
-            font-family: var(--body-font);
-            text-transform: uppercase;
-            transition: .4s ease;
-            box-shadow: var(--btn-shadow);
-            cursor: pointer;
-        }
+    .social-media {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
 
-        .btn:hover {
-            background: var(--btn-hover-bg);
-            color: var(--btn-hover-color);
-            transform: scale(1.05);
-        }
+    .social-media a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 5rem;
+      height: 5rem;
+      background: var(--panel-bg);
+      border: var(--panel-border);
+      border-radius: var(--border-radius);
+      font-size: 2.2rem;
+      color: var(--accent-1);
+      transition: .4s ease;
+      box-shadow: var(--btn-shadow);
+    }
 
-        /* ABOUT */
-        .about {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
+    .social-media a:hover {
+      background: var(--accent-1);
+      color: var(--bg-color);
+      transform: translateY(-8px);
+    }
 
-        .heading {
-            text-align: center;
-            font-size: 4.5rem;
-            font-family: var(--heading-font);
-            margin-bottom: 4rem;
-            color: var(--text-main);
-        }
-        
-        .heading span {
-            color: var(--accent-1);
-        }
+    .btn {
+      display: inline-block;
+      padding: 1.5rem 3.5rem;
+      background: var(--btn-bg);
+      border: var(--btn-border);
+      border-radius: var(--border-radius);
+      font-size: 1.8rem;
+      color: var(--btn-color);
+      font-weight: 700;
+      font-family: var(--body-font);
+      text-transform: uppercase;
+      transition: .4s ease;
+      box-shadow: var(--btn-shadow);
+      cursor: pointer;
+    }
 
-        .about-content {
-            background: var(--panel-bg);
-            padding: 5rem;
-            border-radius: var(--border-radius);
-            border: var(--panel-border);
-            backdrop-filter: var(--glass-blur);
-            text-align: center;
-            max-width: 90rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+    .btn:hover {
+      background: var(--btn-hover-bg);
+      color: var(--btn-hover-color);
+      transform: scale(1.05);
+    }
 
-        .about-content h3 {
-            font-size: 3rem;
-            color: var(--accent-2);
-            margin-bottom: 2rem;
-            font-family: var(--heading-font);
-        }
+    /* ABOUT */
+    .about {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
 
-        .about-content p {
-            font-size: 1.8rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 3rem;
-        }
+    .heading {
+      text-align: center;
+      font-size: 4.5rem;
+      font-family: var(--heading-font);
+      margin-bottom: 4rem;
+      color: var(--text-main);
+    }
 
-        /* SKILLS / VIBES */
-        .skills {
-            background: var(--bg-color);
-        }
+    .heading span {
+      color: var(--accent-1);
+    }
 
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-            gap: 3rem;
-        }
+    .about-content {
+      background: var(--panel-bg);
+      padding: 5rem;
+      border-radius: var(--border-radius);
+      border: var(--panel-border);
+      backdrop-filter: var(--glass-blur);
+      text-align: center;
+      max-width: 90rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
 
-        .skills-box {
-            background: var(--panel-bg);
-            padding: 4rem 2rem;
-            border-radius: var(--border-radius);
-            border: var(--panel-border);
-            text-align: center;
-            backdrop-filter: var(--glass-blur);
-            transition: .4s ease;
-        }
+    .about-content h3 {
+      font-size: 3rem;
+      color: var(--accent-2);
+      margin-bottom: 2rem;
+      font-family: var(--heading-font);
+    }
 
-        .skills-box:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-1);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
+    .about-content p {
+      font-size: 1.8rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 3rem;
+    }
 
-        .skills-box i {
-            font-size: 6rem;
-            color: var(--accent-1);
-            margin-bottom: 1.5rem;
-            text-shadow: 0 0 10px var(--accent-1);
-        }
+    /* SKILLS / VIBES */
+    .skills {
+      background: var(--bg-color);
+    }
 
-        .skills-box h3 {
-            font-size: 2.6rem;
-            margin-bottom: 1rem;
-            color: var(--text-main);
-            font-family: var(--heading-font);
-        }
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+      gap: 3rem;
+    }
 
-        .skills-box p {
-            font-size: 1.6rem;
-            color: var(--text-muted);
-        }
+    .skills-box {
+      background: var(--panel-bg);
+      padding: 4rem 2rem;
+      border-radius: var(--border-radius);
+      border: var(--panel-border);
+      text-align: center;
+      backdrop-filter: var(--glass-blur);
+      transition: .4s ease;
+    }
 
-        /* PROJECTS / EVENTS */
-        .portfolio {
-            background: var(--bg-color);
-        }
+    .skills-box:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent-1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
 
-        .portfolio-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
-            gap: 3rem;
-        }
+    .skills-box i {
+      font-size: 6rem;
+      color: var(--accent-1);
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 10px var(--accent-1);
+    }
 
-        .portfolio-box {
-            background: var(--panel-bg);
-            border-radius: var(--border-radius);
-            padding: 3rem;
-            text-align: center;
-            border: var(--panel-border);
-            transition: .4s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+    .skills-box h3 {
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
+      color: var(--text-main);
+      font-family: var(--heading-font);
+    }
 
-        .portfolio-box:hover {
-            transform: scale(1.03);
-            border-color: var(--accent-2);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-        }
+    .skills-box p {
+      font-size: 1.6rem;
+      color: var(--text-muted);
+    }
 
-        .portfolio-box h4 {
-            font-size: 2.4rem;
-            color: var(--accent-1);
-            margin-bottom: 1.5rem;
-            font-family: var(--heading-font);
-        }
+    /* PROJECTS / EVENTS */
+    .portfolio {
+      background: var(--bg-color);
+    }
 
-        .portfolio-box p {
-            font-size: 1.6rem;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            flex-grow: 1;
-        }
+    .portfolio-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+      gap: 3rem;
+    }
 
-        .portfolio-links {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+    .portfolio-box {
+      background: var(--panel-bg);
+      border-radius: var(--border-radius);
+      padding: 3rem;
+      text-align: center;
+      border: var(--panel-border);
+      transition: .4s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-        .portfolio-links .btn {
-            padding: 1rem 2rem;
-            font-size: 1.3rem;
-            width: 100%;
-        }
+    .portfolio-box:hover {
+      transform: scale(1.03);
+      border-color: var(--accent-2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
 
-        /* CONTACT */
-        .contact form {
-            max-width: 80rem;
-            margin: 0 auto;
-            background: var(--panel-bg);
-            padding: 4rem;
-            border-radius: var(--border-radius);
-            border: var(--panel-border);
-            backdrop-filter: var(--glass-blur);
-        }
+    .portfolio-box h4 {
+      font-size: 2.4rem;
+      color: var(--accent-1);
+      margin-bottom: 1.5rem;
+      font-family: var(--heading-font);
+    }
 
-        .contact form .input-box {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
+    .portfolio-box p {
+      font-size: 1.6rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      flex-grow: 1;
+    }
 
-        .contact form .input-box input,
-        .contact form textarea {
-            width: 100%;
-            padding: 1.8rem;
-            font-size: 1.6rem;
-            color: var(--text-main);
-            background: var(--bg-color);
-            border: 1px solid var(--text-muted);
-            border-radius: var(--border-radius);
-            margin-bottom: 2rem;
-            font-family: var(--body-font);
-            transition: .3s;
-        }
+    .portfolio-links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-        .contact form .input-box input:focus,
-        .contact form textarea:focus {
-            border-color: var(--accent-1);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-        }
+    .portfolio-links .btn {
+      padding: 1rem 2rem;
+      font-size: 1.3rem;
+      width: 100%;
+    }
 
-        .contact form .input-box input {
-            width: 48%;
-        }
+    /* CONTACT */
+    .contact form {
+      max-width: 80rem;
+      margin: 0 auto;
+      background: var(--panel-bg);
+      padding: 4rem;
+      border-radius: var(--border-radius);
+      border: var(--panel-border);
+      backdrop-filter: var(--glass-blur);
+    }
 
-        .contact form textarea {
-            resize: none;
-            height: 20rem;
-        }
+    .contact form .input-box {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
 
-        .contact form .btn {
-            width: 100%;
-        }
+    .contact form .input-box input,
+    .contact form textarea {
+      width: 100%;
+      padding: 1.8rem;
+      font-size: 1.6rem;
+      color: var(--text-main);
+      background: var(--bg-color);
+      border: 1px solid var(--text-muted);
+      border-radius: var(--border-radius);
+      margin-bottom: 2rem;
+      font-family: var(--body-font);
+      transition: .3s;
+    }
 
-        /* FOOTER */
-        .footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            padding: 3rem 9%;
-            background: var(--bg-color);
-            border-top: var(--panel-border);
-        }
+    .contact form .input-box input:focus,
+    .contact form textarea:focus {
+      border-color: var(--accent-1);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
 
-        .footer-text p {
-            font-size: 1.6rem;
-            color: var(--text-muted);
-        }
+    .contact form .input-box input {
+      width: 48%;
+    }
 
-        .footer-iconTop a {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-            background: var(--btn-bg);
-            border: var(--btn-border);
-            border-radius: var(--border-radius);
-            color: var(--btn-color);
-            font-size: 2.4rem;
-            transition: .4s ease;
-        }
+    .contact form textarea {
+      resize: none;
+      height: 20rem;
+    }
 
-        .footer-iconTop a:hover {
-            background: var(--btn-hover-bg);
-            color: var(--btn-hover-color);
-        }
+    .contact form .btn {
+      width: 100%;
+    }
 
-        /* ----------------------- */
-        /* THEME SWITCHER FLOATER  */
-        /* ----------------------- */
-        .theme-switcher {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            background: var(--panel-bg);
-            border: var(--panel-border);
-            backdrop-filter: var(--glass-blur);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            font-family: var(--body-font);
-        }
-        
-        .theme-switcher h4 {
-            font-size: 1.4rem;
-            color: var(--text-main);
-            text-transform: uppercase;
-            text-align: center;
-            margin-bottom: 0.5rem;
-            letter-spacing: 1px;
-        }
+    /* FOOTER */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 3rem 9%;
+      background: var(--bg-color);
+      border-top: var(--panel-border);
+    }
 
-        .theme-btn {
-            background: var(--bg-color);
-            color: var(--text-main);
-            border: 1px solid var(--text-muted);
-            padding: 0.8rem 1.2rem;
-            font-size: 1.4rem;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: 0.3s;
-            text-align: left;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-family: var(--body-font);
-        }
+    .footer-text p {
+      font-size: 1.6rem;
+      color: var(--text-muted);
+    }
 
-        .theme-btn:hover, .theme-btn.active {
-            border-color: var(--accent-1);
-            color: var(--accent-1);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-        }
+    .footer-iconTop a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      background: var(--btn-bg);
+      border: var(--btn-border);
+      border-radius: var(--border-radius);
+      color: var(--btn-color);
+      font-size: 2.4rem;
+      transition: .4s ease;
+    }
 
-        .theme-btn i {
-            font-size: 1.8rem;
-        }
+    .footer-iconTop a:hover {
+      background: var(--btn-hover-bg);
+      color: var(--btn-hover-color);
+    }
 
-        /* RESPONSIVE */
-        @media (max-width: 1200px) { html { font-size: 55%; } }
-        @media (max-width: 991px) {
-            .header { padding: 2rem 5%; }
-            section { padding: 10rem 5% 4rem; }
-            .home-content h1 { font-size: 6rem; }
-            .theme-switcher {
-                bottom: initial;
-                top: 80px;
-                left: 10px;
-                transform: scale(0.85);
-            }
-        }
-        @media (max-width: 768px) {
-            #menu-icon { display: block; }
-            .navbar {
-                position: absolute;
-                top: 100%; left: 0; width: 100%;
-                padding: 1rem 5%;
-                background: var(--bg-color);
-                border-bottom: var(--panel-border);
-                display: none;
-            }
-            .navbar.active { display: block; }
-            .navbar a {
-                display: block; font-size: 2rem; margin: 3rem 0; text-align: center;
-            }
-            .contact form .input-box input { width: 100%; }
-        }
-    </style>
+    /* ----------------------- */
+    /* THEME SWITCHER FLOATER  */
+    /* ----------------------- */
+    .theme-switcher {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      background: var(--panel-bg);
+      border: var(--panel-border);
+      backdrop-filter: var(--glass-blur);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+      font-family: var(--body-font);
+    }
+
+    .theme-switcher h4 {
+      font-size: 1.4rem;
+      color: var(--text-main);
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+
+    .theme-btn {
+      background: var(--bg-color);
+      color: var(--text-main);
+      border: 1px solid var(--text-muted);
+      padding: 0.8rem 1.2rem;
+      font-size: 1.4rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.3s;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--body-font);
+    }
+
+    .theme-btn:hover,
+    .theme-btn.active {
+      border-color: var(--accent-1);
+      color: var(--accent-1);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+
+    .theme-btn i {
+      font-size: 1.8rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1200px) {
+      html {
+        font-size: 55%;
+      }
+    }
+
+    @media (max-width: 991px) {
+      .header {
+        padding: 2rem 5%;
+      }
+
+      section {
+        padding: 10rem 5% 4rem;
+      }
+
+      .home-content h1 {
+        font-size: 6rem;
+      }
+
+      .theme-switcher {
+        bottom: initial;
+        top: 80px;
+        left: 10px;
+        transform: scale(0.85);
+      }
+    }
+
+    @media (max-width: 768px) {
+      #menu-icon {
+        display: block;
+      }
+
+      .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 5%;
+        background: var(--bg-color);
+        border-bottom: var(--panel-border);
+        display: none;
+      }
+
+      .navbar.active {
+        display: block;
+      }
+
+      .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        text-align: center;
+      }
+
+      .contact form .input-box input {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <!-- Initial Theme Set via Data Attribute -->
 <html data-theme="neon-nights">
+
 <body>
 
-    <!-- THEME SWITCHER -->
-    <div class="theme-switcher">
-        <h4>Select Vibe</h4>
-        <button class="theme-btn active" onclick="setTheme('neon-nights', this)">
-            <i class='bx bx-party'></i> Neon Nights
-        </button>
-        <button class="theme-btn" onclick="setTheme('hollywood-glam', this)">
-            <i class='bx bxs-camera-movie'></i> Hollywood Glam
-        </button>
-        <button class="theme-btn" onclick="setTheme('tropical-light', this)">
-            <i class='bx bx-sun'></i> Tropical (Light)
-        </button>
-        <button class="theme-btn" onclick="setTheme('tropical-dark', this)">
-            <i class='bx bx-moon'></i> Tropical (Dark)
-        </button>
+  <!-- THEME SWITCHER -->
+  <div class="theme-switcher">
+    <h4>Select Vibe</h4>
+    <button class="theme-btn active" onclick="setTheme('neon-nights', this)">
+      <i class='bx bx-party'></i> Neon Nights
+    </button>
+    <button class="theme-btn" onclick="setTheme('hollywood-glam', this)">
+      <i class='bx bxs-camera-movie'></i> Hollywood Glam
+    </button>
+    <button class="theme-btn" onclick="setTheme('tropical-light', this)">
+      <i class='bx bx-sun'></i> Tropical (Light)
+    </button>
+    <button class="theme-btn" onclick="setTheme('tropical-dark', this)">
+      <i class='bx bx-moon'></i> Tropical (Dark)
+    </button>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="#home" class="logo">Jacob<span style="color:var(--accent-2)">.</span>Vibes</a>
+    <i class='bx bx-menu' id="menu-icon"></i>
+
+    <nav class="navbar">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">VIP Access</a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="home" id="home">
+    <div class="home-content">
+      <h3>Welcome to my Portfolio</h3>
+      <h1>Jacob <span>Clancy</span></h1>
+      <h3>Event Experience <span class="multiple-text"></span></h3>
+      <p>Step inside my digital venue. I construct immersive, high-quality event experiences that adapt to any vibe.
+        Explore the portfolio below.</p>
+      <div class="social-media">
+        <a href="#"><i class='bx bxl-instagram'></i></a>
+        <a href="#"><i class='bx bxl-tiktok'></i></a>
+        <a href="#"><i class='bx bxl-spotify'></i></a>
+        <a href="#"><i class='bx bx-envelope'></i></a>
+      </div>
+      <a href="#" class="btn">Get on the Guestlist</a>
     </div>
+  </section>
 
-    <!-- HEADER -->
-    <header class="header">
-        <a href="#home" class="logo">Jacob<span style="color:var(--accent-2)">.</span>Vibes</a>
-        <i class='bx bx-menu' id="menu-icon"></i>
+  <!-- ABOUT SECTION -->
+  <section class="about" id="about">
+    <h2 class="heading">About <span>Me</span></h2>
+    <div class="about-content">
+      <h3>Event Tech & Vibe Architect</h3>
+      <p>I specialize in curating digital and physical atmospheres. Whether it's the pulsing beats of a Neon Night, the
+        sophistication of an A-List Hollywood Gala, or catching the sunset waves at a Tropical Beach Party—I design the
+        technology, lighting, and code to make the experience unforgettable. My passion lies in full-scale web
+        development tailored for the entertainment industry.</p>
+      <a href="#" class="btn">Read My Bio</a>
+    </div>
+  </section>
 
-        <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#features">Features</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">VIP Access</a>
-        </nav>
-    </header>
+  <!-- FEATURES SECTION -->
+  <section class="skills" id="features">
+    <h2 class="heading">My <span>Expertise</span></h2>
 
-    <!-- HERO SECTION -->
-    <section class="home" id="home">
-        <div class="home-content">
-            <h3>Welcome to my Portfolio</h3>
-            <h1>Jacob <span>Clancy</span></h1>
-            <h3>Event Experience <span class="multiple-text"></span></h3>
-            <p>Step inside my digital venue. I construct immersive, high-quality event experiences that adapt to any vibe. Explore the portfolio below.</p>
-            <div class="social-media">
-                <a href="#"><i class='bx bxl-instagram'></i></a>
-                <a href="#"><i class='bx bxl-tiktok'></i></a>
-                <a href="#"><i class='bx bxl-spotify'></i></a>
-                <a href="#"><i class='bx bx-envelope'></i></a>
-            </div>
-            <a href="#" class="btn">Get on the Guestlist</a>
+    <div class="skills-container">
+      <div class="skills-box">
+        <i class='bx bx-user-plus'></i>
+        <h3>Student Registration</h3>
+        <p>A complete dual-themed registration form built with custom CSS layout.</p>
+      </div>
+      <div class="skills-box">
+        <i class='bx bx-book-reader'></i>
+        <h3>Demo Study</h3>
+        <p>Interactive study demonstrations showcasing core HTML structural elements.</p>
+      </div>
+      <div class="skills-box">
+        <i class='bx bx-music'></i>
+        <h3>Playlist UI</h3>
+        <p>A customized music playlist interface with smooth hover interactions.</p>
+      </div>
+      <div class="skills-box">
+        <i class='bx bx-user-check'></i>
+        <h3>Account Creation</h3>
+        <p>A stylized player account signup page utilizing complex input styling.</p>
+      </div>
+      <div class="skills-box">
+        <i class='bx bx-calendar-event'></i>
+        <h3>Student Schedule</h3>
+        <p>A beautiful responsive table layout for organizing classes and times.</p>
+      </div>
+      <div class="skills-box">
+        <i class='bx bx-group'></i>
+        <h3>Student Portal</h3>
+        <p>A unified hub managing study sessions, playlist integration, and schedules.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section class="portfolio" id="projects">
+    <h2 class="heading">Latest <span>Projects</span></h2>
+
+    <div class="portfolio-container">
+      <div class="portfolio-box">
+        <h4>Student Registration</h4>
+        <p>A beautifully stylized HTML & CSS registration form focusing on responsive inputs and typography.</p>
+        <div class="portfolio-links">
+          <a href="https://github.com" target="_blank" class="btn">View Code</a>
+          <a href="#" target="_blank" class="btn">Live Demo</a>
         </div>
-    </section>
-
-    <!-- ABOUT SECTION -->
-    <section class="about" id="about">
-        <h2 class="heading">About <span>Me</span></h2>
-        <div class="about-content">
-            <h3>Event Tech & Vibe Architect</h3>
-            <p>I specialize in curating digital and physical atmospheres. Whether it's the pulsing beats of a Neon Night, the sophistication of an A-List Hollywood Gala, or catching the sunset waves at a Tropical Beach Party—I design the technology, lighting, and code to make the experience unforgettable. My passion lies in full-scale web development tailored for the entertainment industry.</p>
-            <a href="#" class="btn">Read My Bio</a>
+      </div>
+      <div class="portfolio-box">
+        <h4>User Account Creation</h4>
+        <p>A badass esports-themed account creation page with glowing accents and sleek borders.</p>
+        <div class="portfolio-links">
+          <a href="https://github.com" target="_blank" class="btn">View Code</a>
+          <a href="#" target="_blank" class="btn">Live Demo</a>
         </div>
-    </section>
-
-    <!-- FEATURES SECTION -->
-    <section class="skills" id="features">
-        <h2 class="heading">My <span>Expertise</span></h2>
-
-        <div class="skills-container">
-            <div class="skills-box">
-                <i class='bx bx-headphone'></i>
-                <h3>Audio Engineering</h3>
-                <p>Crisp acoustics, curated setlists, and booming bass for any venue.</p>
-            </div>
-            <div class="skills-box">
-                <i class='bx bx-bulb'></i>
-                <h3>Lighting Design</h3>
-                <p>From neon lasers to warm sunset glows and paparazzi flashes.</p>
-            </div>
-            <div class="skills-box">
-                <i class='bx bx-code-alt'></i>
-                <h3>Web Development</h3>
-                <p>Building high-speed ticketing platforms and VIP dashboards.</p>
-            </div>
-            <div class="skills-box">
-                <i class='bx bx-drink'></i>
-                <h3>Beverage & Bar API</h3>
-                <p>Automated summer drink menus and luxury champagne orders.</p>
-            </div>
-            <div class="skills-box">
-                <i class='bx bx-camera'></i>
-                <h3>Photography Sync</h3>
-                <p>Red carpet cloud galleries updated in real-time.</p>
-            </div>
-            <div class="skills-box">
-                <i class='bx bx-map-pin'></i>
-                <h3>Venue Sourcing</h3>
-                <p>Locating the best tropical islands and penthouse suites.</p>
-            </div>
+      </div>
+      <div class="portfolio-box">
+        <h4>Student Schedule</h4>
+        <p>A complex, responsive HTML table layout beautifully built to structure school and daily routines.</p>
+        <div class="portfolio-links">
+          <a href="https://github.com" target="_blank" class="btn">View Code</a>
+          <a href="#" target="_blank" class="btn">Live Demo</a>
         </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section class="portfolio" id="projects">
-        <h2 class="heading">Latest <span>Projects</span></h2>
-
-        <div class="portfolio-container">
-            <div class="portfolio-box">
-                <h4>Neon Nights UI</h4>
-                <p>A futuristic portfolio layout with cyberpunk glowing theme and complex CSS arrays.</p>
-                <div class="portfolio-links">
-                    <a href="https://github.com" target="_blank" class="btn">View Code</a>
-                    <a href="https://vercel.com" target="_blank" class="btn">Live Demo</a>
-                </div>
-            </div>
-            <div class="portfolio-box">
-                <h4>Hollywood Glam App</h4>
-                <p>An elegant event-booking application with velvet red UI and sophisticated typography.</p>
-                <div class="portfolio-links">
-                    <a href="https://github.com" target="_blank" class="btn">View Code</a>
-                    <a href="https://vercel.com" target="_blank" class="btn">Live Demo</a>
-                </div>
-            </div>
-            <div class="portfolio-box">
-                <h4>Tropical Planner</h4>
-                <p>A full-stack React application to plan beachside events with light/dark theme toggles.</p>
-                <div class="portfolio-links">
-                    <a href="https://github.com" target="_blank" class="btn">View Code</a>
-                    <a href="https://vercel.com" target="_blank" class="btn">Live Demo</a>
-                </div>
-            </div>
+      </div>
+      <div class="portfolio-box">
+        <h4>Demo Study</h4>
+        <p>Interactive study demonstrations showcasing core HTML structural elements and layouts.</p>
+        <div class="portfolio-links">
+          <a href="https://github.com" target="_blank" class="btn">View Code</a>
+          <a href="#" target="_blank" class="btn">Live Demo</a>
         </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section class="contact" id="contact">
-        <h2 class="heading">Request <span>VIP Access</span></h2>
-        <form action="#">
-            <div class="input-box">
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email Address" required>
-            </div>
-            <div class="input-box">
-                <input type="number" placeholder="Party Size (Guests)">
-                <input type="text" placeholder="Desired Theme/Event" required>
-            </div>
-            <textarea name="" id="" placeholder="Tell us about your next big night..." required></textarea>
-            <button type="submit" class="btn">Send RSVP</button>
-        </form>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-text">
-            <p>&copy; 2024 by Jacob Clancy | Vibe Engineered Portfolio</p>
+      </div>
+      <div class="portfolio-box">
+        <h4>Playlist UI</h4>
+        <p>A customized music playlist interface highlighting smooth hover interactions and album structures.</p>
+        <div class="portfolio-links">
+          <a href="https://github.com" target="_blank" class="btn">View Code</a>
+          <a href="#" target="_blank" class="btn">Live Demo</a>
         </div>
-        <div class="footer-iconTop">
-            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+      </div>
+      <div class="portfolio-box">
+        <h4>Student Portal</h4>
+        <p>A unified hub managing study sessions, playlist integrations, and registration functionalities.</p>
+        <div class="portfolio-links">
+          <a href="https://github.com" target="_blank" class="btn">View Code</a>
+          <a href="#" target="_blank" class="btn">Live Demo</a>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <!-- SCROLL REVEAL & TYPED JS -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script>
-        // Theme Switcher Logic
-        function setTheme(themeName, btnElement) {
-            // Apply theme to the HTML tag
-            document.documentElement.setAttribute('data-theme', themeName);
-            
-            // Reassign active class
-            document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
-            btnElement.classList.add('active');
-        }
+  <!-- CONTACT SECTION -->
+  <section class="contact" id="contact">
+    <h2 class="heading">Request <span>VIP Access</span></h2>
+    <form action="#">
+      <div class="input-box">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+      </div>
+      <div class="input-box">
+        <input type="number" placeholder="Party Size (Guests)">
+        <input type="text" placeholder="Desired Theme/Event" required>
+      </div>
+      <textarea name="" id="" placeholder="Tell us about your next big night..." required></textarea>
+      <button type="submit" class="btn">Send RSVP</button>
+    </form>
+  </section>
 
-        // Toggle icon navbar
-        let menuIcon = document.querySelector('#menu-icon');
-        let navbar = document.querySelector('.navbar');
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-text">
+      <p>&copy; 2024 by Jacob Clancy | Vibe Engineered Portfolio</p>
+    </div>
+    <div class="footer-iconTop">
+      <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+    </div>
+  </footer>
 
-        menuIcon.onclick = () => {
-            menuIcon.classList.toggle('bx-x');
-            navbar.classList.toggle('active');
+  <!-- SCROLL REVEAL & TYPED JS -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+    // Theme Switcher Logic
+    function setTheme(themeName, btnElement) {
+      // Apply theme to the HTML tag
+      document.documentElement.setAttribute('data-theme', themeName);
+
+      // Reassign active class
+      document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
+      btnElement.classList.add('active');
+    }
+
+    // Toggle icon navbar
+    let menuIcon = document.querySelector('#menu-icon');
+    let navbar = document.querySelector('.navbar');
+
+    menuIcon.onclick = () => {
+      menuIcon.classList.toggle('bx-x');
+      navbar.classList.toggle('active');
+    };
+
+    // Scroll sections active link
+    let sections = document.querySelectorAll('section');
+    let navLinks = document.querySelectorAll('header nav a');
+
+    window.onscroll = () => {
+      sections.forEach(sec => {
+        let top = window.scrollY;
+        let offset = sec.offsetTop - 150;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute('id');
+
+        if (top >= offset && top < offset + height) {
+          navLinks.forEach(links => {
+            links.classList.remove('active');
+            document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+          });
         };
+      });
 
-        // Scroll sections active link
-        let sections = document.querySelectorAll('section');
-        let navLinks = document.querySelectorAll('header nav a');
+      // Remove toggle icon and navbar when click navbar link (scroll)
+      menuIcon.classList.remove('bx-x');
+      navbar.classList.remove('active');
+    };
 
-        window.onscroll = () => {
-            sections.forEach(sec => {
-                let top = window.scrollY;
-                let offset = sec.offsetTop - 150;
-                let height = sec.offsetHeight;
-                let id = sec.getAttribute('id');
+    // Scroll reveal
+    ScrollReveal({
+      distance: '80px',
+      duration: 2500,
+      delay: 100,
+      reset: true
+    });
 
-                if(top >= offset && top < offset + height) {
-                    navLinks.forEach(links => {
-                        links.classList.remove('active');
-                        document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
-                    });
-                };
-            });
+    ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
+    ScrollReveal().reveal('.skills-container, .portfolio-container, .contact form', { origin: 'bottom' });
+    ScrollReveal().reveal('.home-content h1, .about-content h3', { origin: 'left' });
+    ScrollReveal().reveal('.home-content p, .about-content p', { origin: 'right' });
 
-            // Remove toggle icon and navbar when click navbar link (scroll)
-            menuIcon.classList.remove('bx-x');
-            navbar.classList.remove('active');
-        };
-
-        // Scroll reveal
-        ScrollReveal({ 
-            distance: '80px',
-            duration: 2500,
-            delay: 100,
-            reset: true
-        });
-
-        ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-        ScrollReveal().reveal('.skills-container, .portfolio-container, .contact form', { origin: 'bottom' });
-        ScrollReveal().reveal('.home-content h1, .about-content h3', { origin: 'left' });
-        ScrollReveal().reveal('.home-content p, .about-content p', { origin: 'right' });
-
-        // Typed js
-        const typed = new Typed('.multiple-text', {
-            strings: ['Creator', 'Architect', 'DJ & Host'],
-            typeSpeed: 80,
-            backSpeed: 50,
-            backDelay: 1500,
-            loop: true
-        });
-    </script>
+    // Typed js
+    const typed = new Typed('.multiple-text', {
+      strings: ['Creator', 'Architect', 'DJ & Host'],
+      typeSpeed: 80,
+      backSpeed: 50,
+      backDelay: 1500,
+      loop: true
+    });
+  </script>
 </body>
+
 </html>
